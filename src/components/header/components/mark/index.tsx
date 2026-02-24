@@ -1,0 +1,31 @@
+import { Text } from "react-native";
+
+import { Skeleton } from "@/components/skeleton";
+
+import { useNewMarketStore } from "@/store/market/market.store";
+
+import { styles } from "./styles";
+
+function formatPrice(value: number) {
+	return Intl.NumberFormat("en-us", {
+		style: "currency",
+		currency: "USD",
+		maximumFractionDigits: 0,
+	}).format(value);
+}
+
+export function Mark() {
+	const isTickerLoading = useNewMarketStore((s) => s.isTickerLoading);
+	const markPrice = useNewMarketStore((s) => s.ticker?.markPrice);
+
+	return (
+		<Skeleton
+			skeletonWidth={65}
+			skeletonHeight={14}
+			isContentVisible={!isTickerLoading}
+			style={styles.skeleton}
+		>
+			<Text style={styles.value}>{formatPrice(markPrice ?? 0)}</Text>
+		</Skeleton>
+	);
+}
