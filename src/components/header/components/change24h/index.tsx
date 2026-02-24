@@ -5,14 +5,17 @@ import Animated, {
 	interpolateColor,
 	useAnimatedStyle,
 	useSharedValue,
-	withTiming,
 } from "react-native-reanimated";
 
 import { Skeleton } from "@/components/skeleton";
 
+import { LOADING_DELAY_IN_MS } from "@/config/ui";
+
+import { useDelayedLoading } from "@/hooks/use-delayed-loading";
+
 import { useNewMarketStore } from "@/store/market/market.store";
 
-import { styles } from "./styles";
+import { BASE_COLOR, NEGATIVE_COLOR, POSITIVE_COLOR, styles } from "./styles";
 
 function formatPercent(value: number) {
 	return Intl.NumberFormat("en-us", {
@@ -30,8 +33,14 @@ enum Direction {
 }
 
 function getDirection(value: number): Direction {
-	if (value > 0) return Direction.Positive;
-	if (value < 0) return Direction.Negative;
+	if (value > 0) {
+		return Direction.Positive;
+	}
+
+	if (value < 0) {
+		return Direction.Negative;
+	}
+
 	return Direction.Base;
 }
 
@@ -42,13 +51,15 @@ const iconMap = {
 } as const;
 
 const colorMap = {
-	[Direction.Positive]: "#38a67c",
-	[Direction.Negative]: "#bc263e",
-	[Direction.Base]: "#c9cdcc",
+	[Direction.Positive]: POSITIVE_COLOR,
+	[Direction.Negative]: NEGATIVE_COLOR,
+	[Direction.Base]: BASE_COLOR,
 } as const;
 
 export function Change24h() {
 	const isTickerLoading = useNewMarketStore((s) => s.isTickerLoading);
+	const isLoading = useDelayedLoading(isTickerLoading, LOADING_DELAY_IN_MS);
+
 	const changePercent = useNewMarketStore((s) => s.ticker?.changePercent);
 
 	const prevRef = useRef(changePercent);
@@ -64,15 +75,13 @@ export function Change24h() {
 			return;
 		}
 
-		if (changePercent === prevRef.current) return;
+		if (changePercent === prevRef.current) {
+			return;
+		}
 
 		direction.value = getDirection(changePercent);
 
 		prevRef.current = changePercent;
-
-		direction.value = withTiming(Direction.Base, {
-			duration: 500,
-		});
 	}, [changePercent, direction]);
 
 	const animatedStyle = useAnimatedStyle(() => {
@@ -95,7 +104,7 @@ export function Change24h() {
 		<Skeleton
 			skeletonWidth={60}
 			skeletonHeight={14}
-			isContentVisible={!isTickerLoading}
+			isContentVisible={!isLoading}
 		>
 			<View style={styles.container}>
 				<FeatherIcon

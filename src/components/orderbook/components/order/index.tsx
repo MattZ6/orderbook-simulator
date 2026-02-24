@@ -7,6 +7,7 @@ import { OrderBar } from "./components/bar";
 import { OrderPrice } from "./components/price";
 import { OrderSize } from "./components/size";
 import { OrderTotal } from "./components/total";
+
 import { styles } from "./styles";
 
 function formatSize(value: number) {

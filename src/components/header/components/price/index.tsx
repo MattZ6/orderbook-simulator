@@ -8,6 +8,10 @@ import Animated, {
 
 import { Skeleton } from "@/components/skeleton";
 
+import { LOADING_DELAY_IN_MS } from "@/config/ui";
+
+import { useDelayedLoading } from "@/hooks/use-delayed-loading";
+
 import { useNewMarketStore } from "@/store/market/market.store";
 
 import { styles } from "./styles";
@@ -28,6 +32,8 @@ enum Direction {
 
 export function Price() {
 	const isTickerLoading = useNewMarketStore((s) => s.isTickerLoading);
+	const isLoading = useDelayedLoading(isTickerLoading, LOADING_DELAY_IN_MS);
+
 	const midPrice = useNewMarketStore((s) => s.ticker?.midPrice);
 	const prevMidPriceRef = useRef(midPrice);
 
@@ -73,7 +79,7 @@ export function Price() {
 		<Skeleton
 			skeletonWidth={80}
 			skeletonHeight={18}
-			isContentVisible={!isTickerLoading}
+			isContentVisible={!isLoading}
 			style={styles.skeleton}
 		>
 			<Animated.Text style={[styles.price, animatedStyle]}>

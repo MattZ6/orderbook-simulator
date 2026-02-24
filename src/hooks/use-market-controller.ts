@@ -104,11 +104,6 @@ export function useMarketController() {
 	const symbol = useNewMarketStore((s) => s.currentSymbol);
 	const tickSize = useNewMarketStore((s) => s.tickSize);
 
-	/*
-  ─────────────────────────────────────────────
-  1️⃣ Conexão (uma vez só)
-  ─────────────────────────────────────────────
-  */
 	useEffect(() => {
 		fakeSocket.connect();
 
@@ -140,25 +135,18 @@ export function useMarketController() {
 		};
 	}, []);
 
-	/*
-  ─────────────────────────────────────────────
-  2️⃣ Quando muda SYMBOL
-     - Atualiza tick sizes disponíveis
-     - Define novo tick inicial
-     - Reseta book (loading verdadeiro)
-     - Re-subscreve tudo
-  ─────────────────────────────────────────────
-  */
 	useEffect(() => {
 		const store = useNewMarketStore.getState();
 
 		const sizes = TICK_SIZES_MAP[symbol];
-		if (!sizes) return;
+
+		if (!sizes) {
+			return;
+		}
 
 		store.setAvailableTickSizes(sizes);
 		store.setTickSize(sizes[0]);
 
-		// Importante: só resetar aqui
 		store.resetBook();
 		store.resetTicker();
 
@@ -170,20 +158,13 @@ export function useMarketController() {
 		});
 	}, [symbol]);
 
-	/*
-  ─────────────────────────────────────────────
-  3️⃣ Quando muda TICK SIZE
-     - NÃO resetar
-     - Apenas re-subscribe do book
-  ─────────────────────────────────────────────
-  */
-
-	// biome-ignore lint/correctness/useExhaustiveDependencies: Só recarregar quando precisa
 	useEffect(() => {
-		fakeSocket.unsubscribe(symbol);
+		const currentSymbol = useNewMarketStore.getState().currentSymbol;
 
-		fakeSocket.subscribeToChannel("ticker", symbol);
-		fakeSocket.subscribeToChannel("book", symbol, {
+		fakeSocket.unsubscribe(currentSymbol);
+
+		fakeSocket.subscribeToChannel("ticker", currentSymbol);
+		fakeSocket.subscribeToChannel("book", currentSymbol, {
 			tickSize,
 		});
 	}, [tickSize]);

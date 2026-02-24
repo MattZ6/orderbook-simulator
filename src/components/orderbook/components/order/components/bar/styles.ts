@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
 		position: "absolute",
 		right: 0,
 		top: 0,
-		opacity: 0.1,
+		opacity: 0.15,
 	},
 	barAsk: {
 		backgroundColor: "#d44b62",

@@ -2,6 +2,10 @@ import { Text } from "react-native";
 
 import { Skeleton } from "@/components/skeleton";
 
+import { LOADING_DELAY_IN_MS } from "@/config/ui";
+
+import { useDelayedLoading } from "@/hooks/use-delayed-loading";
+
 import { useNewMarketStore } from "@/store/market/market.store";
 
 import { styles } from "./styles";
@@ -16,13 +20,15 @@ function formatPrice(value: number) {
 
 export function Mark() {
 	const isTickerLoading = useNewMarketStore((s) => s.isTickerLoading);
+	const isLoading = useDelayedLoading(isTickerLoading, LOADING_DELAY_IN_MS);
+
 	const markPrice = useNewMarketStore((s) => s.ticker?.markPrice);
 
 	return (
 		<Skeleton
 			skeletonWidth={65}
 			skeletonHeight={14}
-			isContentVisible={!isTickerLoading}
+			isContentVisible={!isLoading}
 			style={styles.skeleton}
 		>
 			<Text style={styles.value}>{formatPrice(markPrice ?? 0)}</Text>

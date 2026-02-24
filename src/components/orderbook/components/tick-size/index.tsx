@@ -1,10 +1,19 @@
 import FeatherIcon from "@expo/vector-icons/Feather";
+import * as Haptics from "expo-haptics";
 import { useCallback } from "react";
-import { Pressable, Text } from "react-native";
+import { Platform, Pressable, Text } from "react-native";
 
 import { useNewMarketStore } from "@/store/market/market.store";
 
 import { styles } from "./styles";
+
+function triggerTapHaptic() {
+	if (Platform.OS === "android") {
+		Haptics.performAndroidHapticsAsync(Haptics.AndroidHaptics.Segment_Tick);
+	} else {
+		Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+	}
+}
 
 export function TickSize() {
 	const tickSize = useNewMarketStore((s) => s.tickSize);
@@ -18,6 +27,7 @@ export function TickSize() {
 		const newTickSize = availableTickSizes[newTickSizeIndex];
 
 		setTickSize(newTickSize);
+		triggerTapHaptic();
 	}, [tickSize, availableTickSizes, setTickSize]);
 
 	return (

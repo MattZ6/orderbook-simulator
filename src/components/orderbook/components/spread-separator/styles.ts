@@ -11,8 +11,10 @@ export const styles = StyleSheet.create({
 	},
 	slot: {
 		flex: 1,
-		paddingVertical: 12,
+		alignItems: "center",
+		justifyContent: "center",
 		paddingHorizontal: 16,
+		height: 44,
 	},
 	spreadPrice: {
 		fontSize: 14,

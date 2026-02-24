@@ -1,10 +1,19 @@
 import FeatherIcon from "@expo/vector-icons/Feather";
+import * as Haptics from "expo-haptics";
 import { useCallback } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Platform, Pressable, Text, View } from "react-native";
 
 import { useNewMarketStore } from "@/store/market/market.store";
 
 import { styles } from "./styles";
+
+function triggerTapHaptic() {
+	if (Platform.OS === "android") {
+		Haptics.performAndroidHapticsAsync(Haptics.AndroidHaptics.Segment_Tick);
+	} else {
+		Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Soft);
+	}
+}
 
 const LOGO_COLOR_MAP: { [key: string]: string } = {
 	BTC: "#f7931a",
@@ -16,6 +25,7 @@ export function Ticker() {
 	const switchSymbol = useNewMarketStore((s) => s.switchSymbol);
 
 	const handleToggleSymbol = useCallback(() => {
+		triggerTapHaptic();
 		switchSymbol(symbol === "BTC" ? "ETH" : "BTC");
 	}, [symbol, switchSymbol]);
 

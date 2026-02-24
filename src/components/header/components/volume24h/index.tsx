@@ -2,6 +2,7 @@ import { Text } from "react-native";
 
 import { Skeleton } from "@/components/skeleton";
 
+import { useDelayedLoading } from "@/hooks/use-delayed-loading";
 import { useNewMarketStore } from "@/store/market/market.store";
 
 import { styles } from "./styles";
@@ -24,13 +25,15 @@ function formatVolume(value: number) {
 
 export function Volume24h() {
 	const isTickerLoading = useNewMarketStore((s) => s.isTickerLoading);
+	const isLoading = useDelayedLoading(isTickerLoading, 300);
+
 	const volume24h = useNewMarketStore((s) => s.ticker?.volume24h);
 
 	return (
 		<Skeleton
 			skeletonWidth={65}
 			skeletonHeight={14}
-			isContentVisible={!isTickerLoading}
+			isContentVisible={!isLoading}
 		>
 			<Text style={styles.value}>{formatVolume(volume24h ?? 0)}</Text>
 		</Skeleton>

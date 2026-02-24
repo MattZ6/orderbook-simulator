@@ -1,4 +1,5 @@
 import { View } from "react-native";
+import Animated, { FadeIn } from "react-native-reanimated";
 
 import { SkeletonBlock } from "@/components/skeleton";
 
@@ -14,11 +15,11 @@ export function OrdersSkeleton({ type }: Props) {
 	const levels = useNewMarketStore((s) => s.levels);
 
 	return (
-		<View>
+		<Animated.View entering={FadeIn.duration(300)}>
 			{Array.from({ length: levels }).map((_, i) => (
 				<OrderSkeleton key={String(i)} type={type} />
 			))}
-		</View>
+		</Animated.View>
 	);
 }
 

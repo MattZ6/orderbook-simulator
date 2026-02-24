@@ -1,57 +1,43 @@
-import { StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import { FlatList, StyleSheet, View } from "react-native";
 
+import { AnimatedTabs } from "@/components/animated-tabs";
 import { Header } from "@/components/header";
 import { Orderbook } from "@/components/orderbook";
 
 import { useMarketController } from "@/hooks/use-market-controller";
-import { useNewMarketStore } from "@/store/market/market.store";
+
+type Tab = "orderbook" | "trades";
+
+function Content() {
+	const [activeTab, setActiveTab] = useState<Tab>("orderbook");
+
+	return (
+		<View style={styles.contentBlock}>
+			<AnimatedTabs activeTab={activeTab} onChange={setActiveTab} />
+
+			{activeTab === "orderbook" ? <Orderbook /> : null}
+		</View>
+	);
+}
 
 export default function TradeSurface() {
 	useMarketController();
 
 	return (
-		<View style={styles.container}>
-			<Header />
-
-			<ConnectionStatus />
-
-			<View style={styles.contentBlock}>
-				<View style={styles.contentBlockHeader}>
-					<View style={styles.contentBlockHeaderToggle}>
-						<View
-							style={[
-								styles.contentBlockHeaderButton,
-								styles.contentBlockHeaderButtonActive,
-							]}
-						>
-							<Text
-								style={[
-									styles.contentBlockHeaderButtonText,
-									styles.contentBlockHeaderButtonTextActive,
-								]}
-							>
-								Orderbook
-							</Text>
-						</View>
-						<View style={styles.contentBlockHeaderButton}>
-							<Text style={styles.contentBlockHeaderButtonText}>Trades</Text>
-						</View>
-					</View>
-				</View>
-
-				<Orderbook />
-			</View>
-		</View>
-	);
-}
-
-function ConnectionStatus() {
-	const connectionStatus = useNewMarketStore((s) => s.connectionStatus);
-
-	return (
-		<Text style={{ color: "white", paddingHorizontal: 16, fontSize: 20 }}>
-			{connectionStatus}
-		</Text>
+		<FlatList
+			style={styles.container}
+			data={[]} // lista vazia
+			renderItem={null}
+			ListHeaderComponent={
+				<>
+					<Header />
+					<Content />
+				</>
+			}
+			contentContainerStyle={{ paddingBottom: 40 }}
+			showsVerticalScrollIndicator={false}
+		/>
 	);
 }
 

@@ -1,9 +1,17 @@
-import FeatherIcon from "@expo/vector-icons/Feather";
-import { Pressable, Text } from "react-native";
-
 import { useNewMarketStore } from "@/store/market/market.store";
-
+import FeatherIcon from "@expo/vector-icons/Feather";
+import * as Haptics from "expo-haptics";
+import { useCallback } from "react";
+import { Platform, Pressable, Text } from "react-native";
 import { styles } from "./styles";
+
+function triggerTapHaptic() {
+	if (Platform.OS === "android") {
+		Haptics.performAndroidHapticsAsync(Haptics.AndroidHaptics.Segment_Tick);
+	} else {
+		Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+	}
+}
 
 export function ViewType() {
 	const ticker = useNewMarketStore((s) => s.currentSymbol);
@@ -12,10 +20,15 @@ export function ViewType() {
 
 	const label = viewType === "symbol" ? ticker : "USD";
 
+	const handleToggleViewType = useCallback(() => {
+		triggerTapHaptic();
+		toggleViewType();
+	}, [toggleViewType]);
+
 	return (
 		<Pressable
 			style={styles.button}
-			onPress={toggleViewType}
+			onPress={handleToggleViewType}
 			hitSlop={{
 				top: 16,
 				bottom: 16,
