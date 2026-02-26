@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
 	},
 	field: {
 		flex: 1,
-		gap: theme.spacing["2"],
+		gap: theme.spacing["1"],
 		paddingHorizontal: theme.spacing["4"],
 	},
 	middleField: {
@@ -39,7 +39,6 @@ export const styles = StyleSheet.create({
 		alignItems: "flex-end",
 	},
 	label: {
-		fontSize: 12,
 		color: theme.colors.text.muted,
 		textTransform: "uppercase",
 	},

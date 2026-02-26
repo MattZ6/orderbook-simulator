@@ -1,7 +1,9 @@
 import FeatherIcon from "@expo/vector-icons/Feather";
 import * as Haptics from "expo-haptics";
 import { useCallback } from "react";
-import { Platform, Pressable, Text } from "react-native";
+import { Platform, Pressable } from "react-native";
+
+import { Text } from "@/components/ui/text";
 
 import { DEFAULT_HIT_SLOP } from "@/config/ui";
 
@@ -17,7 +19,7 @@ function triggerTapHaptic() {
 	}
 }
 
-export function TickSize() {
+export function TickSizeSwitcher() {
 	const tickSize = useNewMarketStore((s) => s.tickSize);
 	const availableTickSizes = useNewMarketStore((s) => s.availableTickSizes);
 	const setTickSize = useNewMarketStore((s) => s.setTickSize);
@@ -38,7 +40,9 @@ export function TickSize() {
 			onPress={handleChangeTickSize}
 			hitSlop={DEFAULT_HIT_SLOP}
 		>
-			<Text style={styles.text}>{tickSize}</Text>
+			<Text variant="bodySmall" style={styles.text}>
+				{tickSize}
+			</Text>
 			<FeatherIcon name="chevron-down" size={14} style={styles.icon} />
 		</Pressable>
 	);

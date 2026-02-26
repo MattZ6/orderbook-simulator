@@ -18,12 +18,9 @@ export const styles = StyleSheet.create({
 		height: 44,
 	},
 	spreadPrice: {
-		fontSize: 14,
 		color: theme.colors.text.foreground,
 	},
 	text: {
-		fontSize: 12,
-		lineHeight: 20,
 		color: theme.colors.text.muted,
 		textAlign: "center",
 		textTransform: "uppercase",

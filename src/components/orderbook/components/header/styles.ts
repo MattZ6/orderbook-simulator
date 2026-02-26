@@ -18,8 +18,6 @@ export const styles = StyleSheet.create({
 		justifyContent: "flex-end",
 	},
 	label: {
-		fontSize: 12,
-		lineHeight: 20,
 		color: theme.colors.text.muted,
 		textTransform: "uppercase",
 	},

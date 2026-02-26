@@ -6,6 +6,5 @@ export const styles = StyleSheet.create({
 	},
 	price: {
 		fontWeight: "600",
-		fontSize: 18,
 	},
 });

@@ -24,7 +24,6 @@ export const styles = StyleSheet.create({
 	},
 	ticker: {
 		fontWeight: "700",
-		fontSize: 20,
 		color: theme.colors.text.foreground,
 	},
 	icon: {

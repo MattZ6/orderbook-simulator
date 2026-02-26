@@ -1,4 +1,6 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
+
+import { Text } from "@/components/ui/text";
 
 import { Change24h } from "./components/change24h";
 import { Mark } from "./components/mark";
@@ -18,15 +20,21 @@ export function Header() {
 
 			<View style={styles.bottom}>
 				<View style={styles.field}>
-					<Text style={styles.label}>24h Change</Text>
+					<Text variant="label" style={styles.label}>
+						24h Change
+					</Text>
 					<Change24h />
 				</View>
 				<View style={[styles.field, styles.middleField]}>
-					<Text style={[styles.label]}>24h Volume</Text>
+					<Text variant="label" style={[styles.label]}>
+						24h Volume
+					</Text>
 					<Volume24h />
 				</View>
 				<View style={[styles.field, styles.lastField]}>
-					<Text style={styles.label}>Mark</Text>
+					<Text variant="label" style={styles.label}>
+						Mark
+					</Text>
 					<Mark />
 				</View>
 			</View>

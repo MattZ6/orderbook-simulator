@@ -14,8 +14,6 @@ export const styles = StyleSheet.create({
 	},
 	text: {
 		color: theme.colors.text.foreground,
-		fontWeight: "600",
-		fontSize: 13,
 	},
 	icon: {
 		color: theme.colors.text.muted,

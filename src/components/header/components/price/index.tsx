@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Animated, {
+import {
 	interpolateColor,
 	useAnimatedStyle,
 	useSharedValue,
@@ -7,6 +7,7 @@ import Animated, {
 } from "react-native-reanimated";
 
 import { Skeleton } from "@/components/skeleton";
+import { AnimatedText } from "@/components/ui/animated-text";
 
 import { LOADING_DELAY_IN_MS } from "@/config/ui";
 
@@ -86,9 +87,9 @@ export function Price() {
 			isContentVisible={!isLoading}
 			style={styles.skeleton}
 		>
-			<Animated.Text style={[styles.price, animatedStyle]}>
+			<AnimatedText variant="subtitle" style={[styles.price, animatedStyle]}>
 				{formatPrice(midPrice ?? 0)}
-			</Animated.Text>
+			</AnimatedText>
 		</Skeleton>
 	);
 }

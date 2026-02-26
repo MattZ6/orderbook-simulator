@@ -1,22 +1,18 @@
 import FeatherIcon from "@expo/vector-icons/Feather";
 import { useEffect, useRef } from "react";
 import { View } from "react-native";
-import Animated, {
+import {
 	interpolateColor,
 	useAnimatedStyle,
 	useSharedValue,
 } from "react-native-reanimated";
 
 import { Skeleton } from "@/components/skeleton";
-
+import { AnimatedText } from "@/components/ui/animated-text";
 import { LOADING_DELAY_IN_MS } from "@/config/ui";
-
 import { useDelayedLoading } from "@/hooks/use-delayed-loading";
-
 import { useNewMarketStore } from "@/store/market/market.store";
-
 import { theme } from "@/styles/theme";
-
 import { styles } from "./styles";
 
 function formatPercent(value: number) {
@@ -114,9 +110,9 @@ export function Change24h() {
 					size={12}
 					color={colorMap[variation]}
 				/>
-				<Animated.Text style={[styles.value, animatedStyle]}>
+				<AnimatedText variant="bodySmall" style={[styles.value, animatedStyle]}>
 					{formatPercent(changePercent ?? 0)}
-				</Animated.Text>
+				</AnimatedText>
 			</View>
 		</Skeleton>
 	);

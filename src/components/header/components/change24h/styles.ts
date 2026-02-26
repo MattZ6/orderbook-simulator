@@ -6,10 +6,9 @@ export const styles = StyleSheet.create({
 	container: {
 		flexDirection: "row",
 		alignItems: "center",
-		gap: theme.spacing["4"],
+		gap: theme.spacing["2"],
 	},
 	value: {
 		fontWeight: "600",
-		fontSize: 14,
 	},
 });

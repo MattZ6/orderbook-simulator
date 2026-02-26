@@ -29,7 +29,6 @@ export const styles = StyleSheet.create({
 
 	text: {
 		fontWeight: "600",
-		fontSize: 16,
 		color: theme.colors.text.muted,
 		textAlign: "center",
 	},

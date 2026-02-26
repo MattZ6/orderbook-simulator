@@ -1,9 +1,14 @@
+import { View } from "react-native";
+import Animated, { FadeIn } from "react-native-reanimated";
+
 import { SkeletonBlock } from "@/components/skeleton";
+import { Text } from "@/components/ui/text";
+
 import { LOADING_DELAY_IN_MS } from "@/config/ui";
+
 import { useDelayedLoading } from "@/hooks/use-delayed-loading";
 import { useNewMarketStore } from "@/store/market/market.store";
-import { Text, View } from "react-native";
-import Animated, { FadeIn } from "react-native-reanimated";
+
 import { styles } from "./styles";
 
 function formatPrice(value: number) {
@@ -54,15 +59,19 @@ export function SpreadSeparator() {
 	return (
 		<Animated.View style={styles.container} entering={FadeIn.duration(300)}>
 			<View style={styles.slot}>
-				<Text style={styles.text}>Spread</Text>
-			</View>
-			<View style={styles.slot}>
-				<Text style={[styles.text, styles.spreadPrice]}>
-					{formatPrice(spread ?? 0)}
+				<Text variant="label" style={styles.text}>
+					Spread
 				</Text>
 			</View>
 			<View style={styles.slot}>
-				<Text style={styles.text}>({formatPercent(spreadPercent ?? 0)})</Text>
+				<Text variant="bodySmall" style={[styles.text, styles.spreadPrice]}>
+					{formatPrice((spread ?? 0) * 1000)}
+				</Text>
+			</View>
+			<View style={styles.slot}>
+				<Text variant="label" style={styles.text}>
+					({formatPercent(spreadPercent ?? 0)})
+				</Text>
 			</View>
 		</Animated.View>
 	);
