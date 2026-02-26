@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
 	container: {
 		flexDirection: "row",
 		alignItems: "center",
-		gap: 8,
+		gap: theme.spacing["2"],
 	},
 	logo: {
 		width: SIZE,

@@ -11,8 +11,8 @@ export const styles = StyleSheet.create({
 	slot: {
 		flex: 1,
 		flexDirection: "row",
-		paddingHorizontal: 16,
-		paddingVertical: 12,
+		paddingHorizontal: theme.spacing["4"],
+		paddingVertical: theme.spacing["3"],
 	},
 	lasSlot: {
 		justifyContent: "flex-end",

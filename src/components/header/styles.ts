@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { theme } from "@/styles/theme";
 
 export const styles = StyleSheet.create({
-	header: {
+	container: {
 		borderRadius: 18,
 		backgroundColor: theme.colors.background.card,
 	},
@@ -11,23 +11,23 @@ export const styles = StyleSheet.create({
 		flexDirection: "row",
 		alignItems: "center",
 		justifyContent: "space-between",
-		gap: 16,
+		gap: theme.spacing["4"],
 
-		padding: 16,
+		padding: theme.spacing["4"],
 	},
 	bottom: {
 		flexDirection: "row",
-		gap: 8,
+		gap: theme.spacing["2"],
 
 		borderTopWidth: 1,
 		borderTopColor: theme.colors.border.default,
 
-		paddingVertical: 16,
+		paddingVertical: theme.spacing["4"],
 	},
 	field: {
 		flex: 1,
-		gap: 8,
-		paddingHorizontal: 16,
+		gap: theme.spacing["2"],
+		paddingHorizontal: theme.spacing["4"],
 	},
 	middleField: {
 		borderLeftWidth: 1,

@@ -7,16 +7,16 @@ export const styles = StyleSheet.create({
 		flexDirection: "row",
 		alignItems: "center",
 		justifyContent: "center",
-		gap: 10,
+		gap: theme.spacing["2"],
 
 		height: 36,
-		paddingHorizontal: 12,
+		paddingHorizontal: theme.spacing["3"],
 		borderRadius: 8,
 
 		backgroundColor: theme.colors.background.subtle,
 	},
 	text: {
-		color: "white",
+		color: theme.colors.text.foreground,
 	},
 	icon: {
 		color: theme.colors.text.muted,

@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: "center",
 		justifyContent: "center",
-		paddingHorizontal: 16,
+		paddingHorizontal: theme.spacing["4"],
 		height: 44,
 	},
 	spreadPrice: {

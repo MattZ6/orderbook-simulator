@@ -6,10 +6,10 @@ export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: theme.colors.background.default,
-		paddingTop: 60,
-		paddingHorizontal: 16,
 	},
 	scrollableContent: {
-		paddingBottom: 40,
+		paddingTop: 60,
+		paddingHorizontal: theme.spacing["4"],
+		paddingBottom: theme.spacing["4"],
 	},
 });

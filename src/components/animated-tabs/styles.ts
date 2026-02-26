@@ -4,14 +4,14 @@ import { theme } from "@/styles/theme";
 
 export const styles = StyleSheet.create({
 	wrapper: {
-		padding: 8,
+		padding: theme.spacing["2"],
 	},
 
 	container: {
 		flex: 1,
 		flexDirection: "row",
 		backgroundColor: theme.colors.background.default,
-		padding: 4,
+		padding: theme.spacing["1"],
 		borderRadius: 12,
 
 		position: "relative",
@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
 	button: {
 		flex: 1,
 		height: 40,
-		paddingHorizontal: 16,
+		paddingHorizontal: theme.spacing["4"],
 		borderRadius: 8,
 		alignItems: "center",
 		justifyContent: "center",
