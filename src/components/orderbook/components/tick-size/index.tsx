@@ -3,6 +3,8 @@ import * as Haptics from "expo-haptics";
 import { useCallback } from "react";
 import { Platform, Pressable, Text } from "react-native";
 
+import { DEFAULT_HIT_SLOP } from "@/config/ui";
+
 import { useNewMarketStore } from "@/store/market/market.store";
 
 import { styles } from "./styles";
@@ -34,7 +36,7 @@ export function TickSize() {
 		<Pressable
 			style={styles.button}
 			onPress={handleChangeTickSize}
-			hitSlop={{ top: 16, bottom: 16, left: 16, right: 16 }}
+			hitSlop={DEFAULT_HIT_SLOP}
 		>
 			<Text style={styles.text}>{tickSize}</Text>
 			<FeatherIcon name="chevron-down" size={14} style={styles.icon} />

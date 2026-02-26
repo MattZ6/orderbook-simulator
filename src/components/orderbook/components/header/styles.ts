@@ -1,10 +1,12 @@
 import { StyleSheet } from "react-native";
 
+import { theme } from "@/styles/theme";
+
 export const styles = StyleSheet.create({
 	container: {
 		flexDirection: "row",
 		borderBottomWidth: 1,
-		borderBottomColor: "#222222",
+		borderBottomColor: theme.colors.border.default,
 	},
 	slot: {
 		flex: 1,
@@ -18,7 +20,7 @@ export const styles = StyleSheet.create({
 	label: {
 		fontSize: 12,
 		lineHeight: 20,
-		color: "#606563",
+		color: theme.colors.text.muted,
 		textTransform: "uppercase",
 	},
 	lastLabel: {

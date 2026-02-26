@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { theme } from "@/styles/theme";
 
 export const styles = StyleSheet.create({
 	button: {
@@ -9,14 +10,14 @@ export const styles = StyleSheet.create({
 		height: 36,
 		paddingHorizontal: 12,
 		borderRadius: 8,
-		backgroundColor: "#1f1f1f",
+		backgroundColor: theme.colors.background.subtle,
 	},
 	text: {
-		color: "#e8e3db",
+		color: theme.colors.text.foreground,
 		fontWeight: "600",
 		fontSize: 13,
 	},
 	icon: {
-		color: "#6b7280",
+		color: theme.colors.text.muted,
 	},
 });

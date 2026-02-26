@@ -1,8 +1,12 @@
-import { useNewMarketStore } from "@/store/market/market.store";
 import FeatherIcon from "@expo/vector-icons/Feather";
 import * as Haptics from "expo-haptics";
 import { useCallback } from "react";
 import { Platform, Pressable, Text } from "react-native";
+
+import { DEFAULT_HIT_SLOP } from "@/config/ui";
+
+import { useNewMarketStore } from "@/store/market/market.store";
+
 import { styles } from "./styles";
 
 function triggerTapHaptic() {
@@ -29,12 +33,7 @@ export function ViewType() {
 		<Pressable
 			style={styles.button}
 			onPress={handleToggleViewType}
-			hitSlop={{
-				top: 16,
-				bottom: 16,
-				left: 16,
-				right: 16,
-			}}
+			hitSlop={DEFAULT_HIT_SLOP}
 		>
 			<Text style={styles.text}>{label}</Text>
 			<FeatherIcon name="refresh-cw" size={12} style={styles.icon} />

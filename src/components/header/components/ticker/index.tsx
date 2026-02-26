@@ -3,9 +3,11 @@ import * as Haptics from "expo-haptics";
 import { useCallback } from "react";
 import { Platform, Pressable, Text, View } from "react-native";
 
+import { DEFAULT_HIT_SLOP } from "@/config/ui";
+
 import { useNewMarketStore } from "@/store/market/market.store";
 
-import { styles } from "./styles";
+import { styles, TICKER_LOGO_COLOR_MAP } from "./styles";
 
 function triggerTapHaptic() {
 	if (Platform.OS === "android") {
@@ -14,11 +16,6 @@ function triggerTapHaptic() {
 		Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Soft);
 	}
 }
-
-const LOGO_COLOR_MAP: { [key: string]: string } = {
-	BTC: "#f7931a",
-	ETH: "#ffffff",
-};
 
 export function Ticker() {
 	const symbol = useNewMarketStore((s) => s.currentSymbol);
@@ -30,18 +27,13 @@ export function Ticker() {
 	}, [symbol, switchSymbol]);
 
 	return (
-		<Pressable
-			hitSlop={{
-				top: 16,
-				bottom: 16,
-				left: 16,
-				right: 16,
-			}}
-			onPress={handleToggleSymbol}
-		>
+		<Pressable hitSlop={DEFAULT_HIT_SLOP} onPress={handleToggleSymbol}>
 			<View style={styles.container}>
 				<View
-					style={[styles.logo, { backgroundColor: LOGO_COLOR_MAP[symbol] }]}
+					style={[
+						styles.logo,
+						{ backgroundColor: TICKER_LOGO_COLOR_MAP[symbol] },
+					]}
 				/>
 				<Text style={styles.ticker}>{symbol}</Text>
 				<FeatherIcon name="chevron-down" size={20} style={styles.icon} />

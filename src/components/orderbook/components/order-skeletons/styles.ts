@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+import { theme } from "@/styles/theme";
+
 export const styles = StyleSheet.create({
 	row: {
 		flexDirection: "row",
@@ -7,10 +9,10 @@ export const styles = StyleSheet.create({
 		height: 34,
 	},
 	bidSkeleton: {
-		backgroundColor: "rgba(92, 192, 155, 0.15)",
+		backgroundColor: theme.colors.background.positive,
 	},
 	askSkeleton: {
-		backgroundColor: "rgba(212, 75, 98, 0.15)",
+		backgroundColor: theme.colors.background.negative,
 	},
 	slot: {
 		flex: 1,

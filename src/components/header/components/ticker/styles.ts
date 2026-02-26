@@ -1,6 +1,12 @@
 import { StyleSheet } from "react-native";
+import { theme } from "@/styles/theme";
 
-export const TICKER_LOGO_SIZE = 28;
+export const TICKER_LOGO_COLOR_MAP: { [key: string]: string } = {
+	BTC: "#f7931a",
+	ETH: "#ffffff",
+};
+
+const SIZE = 28;
 
 export const styles = StyleSheet.create({
 	container: {
@@ -9,17 +15,19 @@ export const styles = StyleSheet.create({
 		gap: 8,
 	},
 	logo: {
-		width: TICKER_LOGO_SIZE,
-		height: TICKER_LOGO_SIZE,
-		borderRadius: TICKER_LOGO_SIZE,
-		backgroundColor: "#111111",
+		width: SIZE,
+		height: SIZE,
+		borderRadius: SIZE,
+		backgroundColor: theme.colors.background.default,
+		borderWidth: 1,
+		borderColor: theme.colors.border.default,
 	},
 	ticker: {
 		fontWeight: "700",
 		fontSize: 20,
-		color: "#dfdfdf",
+		color: theme.colors.text.foreground,
 	},
 	icon: {
-		color: "#606563",
+		color: theme.colors.text.muted,
 	},
 });

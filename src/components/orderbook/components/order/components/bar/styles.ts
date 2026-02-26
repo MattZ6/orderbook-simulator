@@ -1,17 +1,18 @@
 import { StyleSheet } from "react-native";
 
+import { theme } from "@/styles/theme";
+
 export const styles = StyleSheet.create({
 	bar: {
 		height: "100%",
 		position: "absolute",
 		right: 0,
 		top: 0,
-		opacity: 0.15,
 	},
 	barAsk: {
-		backgroundColor: "#d44b62",
+		backgroundColor: theme.colors.background.negative,
 	},
 	barBid: {
-		backgroundColor: "#5cc09b",
+		backgroundColor: theme.colors.background.positive,
 	},
 });

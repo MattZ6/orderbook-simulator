@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+import { theme } from "@/styles/theme";
+
 export const styles = StyleSheet.create({
 	wrapper: {
 		padding: 8,
@@ -8,7 +10,7 @@ export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		flexDirection: "row",
-		backgroundColor: "#111111",
+		backgroundColor: theme.colors.background.default,
 		padding: 4,
 		borderRadius: 12,
 
@@ -28,17 +30,17 @@ export const styles = StyleSheet.create({
 	text: {
 		fontWeight: "600",
 		fontSize: 16,
-		color: "#545857",
+		color: theme.colors.text.muted,
 		textAlign: "center",
 	},
 
 	textActive: {
-		color: "#37cc81",
+		color: theme.colors.text.primary,
 	},
 
 	activeBackground: {
 		position: "absolute",
-		backgroundColor: "#2c3532",
+		backgroundColor: theme.colors.background.primaryMuted,
 		borderRadius: 8,
 		height: 40,
 		top: 4,

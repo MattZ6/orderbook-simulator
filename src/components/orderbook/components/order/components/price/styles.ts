@@ -1,15 +1,17 @@
 import { StyleSheet } from "react-native";
 
+import { theme } from "@/styles/theme";
+
 export const styles = StyleSheet.create({
 	text: {
 		fontSize: 14,
 		lineHeight: 20,
-		color: "#e8e3db",
+		color: theme.colors.text.foreground,
 	},
 	bid: {
-		color: "#5cc09b",
+		color: theme.colors.text.positive,
 	},
 	ask: {
-		color: "#d44b62",
+		color: theme.colors.text.negative,
 	},
 });

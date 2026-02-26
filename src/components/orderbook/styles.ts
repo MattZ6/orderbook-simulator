@@ -15,30 +15,4 @@ export const styles = StyleSheet.create({
 
 		marginBottom: 12,
 	},
-	select: {
-		flexDirection: "row",
-		alignItems: "center",
-		justifyContent: "center",
-		gap: 8,
-
-		height: 32,
-		paddingHorizontal: 12,
-		borderRadius: 8,
-	},
-	toggle: {
-		flexDirection: "row",
-		alignItems: "center",
-		justifyContent: "center",
-		gap: 8,
-
-		height: 32,
-		paddingHorizontal: 12,
-		borderRadius: 8,
-
-		backgroundColor: "#29302d",
-	},
-	toggleText: {
-		textAlign: "center",
-		color: "#d6dbd9",
-	},
 });

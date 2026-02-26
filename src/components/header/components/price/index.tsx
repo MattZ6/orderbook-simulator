@@ -14,6 +14,8 @@ import { useDelayedLoading } from "@/hooks/use-delayed-loading";
 
 import { useNewMarketStore } from "@/store/market/market.store";
 
+import { theme } from "@/styles/theme";
+
 import { styles } from "./styles";
 
 function formatPrice(value: number) {
@@ -64,12 +66,14 @@ export function Price() {
 	}, [midPrice, direction]);
 
 	const animatedStyle = useAnimatedStyle(() => {
-		const baseColor = "#dfdfdf";
-
 		const color = interpolateColor(
 			direction.value,
-			[-1, 0, 1],
-			["#bc263e", baseColor, "#38a67c"],
+			[Direction.Negative, Direction.Base, Direction.Positive],
+			[
+				theme.colors.text.negative,
+				theme.colors.text.foreground,
+				theme.colors.text.positive,
+			],
 		);
 
 		return { color };

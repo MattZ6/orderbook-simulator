@@ -1,9 +1,11 @@
 import { StyleSheet } from "react-native";
 
+import { theme } from "@/styles/theme";
+
 export const styles = StyleSheet.create({
 	header: {
 		borderRadius: 18,
-		backgroundColor: "#171717",
+		backgroundColor: theme.colors.background.card,
 	},
 	upper: {
 		flexDirection: "row",
@@ -18,7 +20,7 @@ export const styles = StyleSheet.create({
 		gap: 8,
 
 		borderTopWidth: 1,
-		borderTopColor: "#222222",
+		borderTopColor: theme.colors.border.default,
 
 		paddingVertical: 16,
 	},
@@ -31,14 +33,14 @@ export const styles = StyleSheet.create({
 		borderLeftWidth: 1,
 		borderRightWidth: 1,
 
-		borderColor: "#222222",
+		borderColor: theme.colors.border.default,
 	},
 	lastField: {
 		alignItems: "flex-end",
 	},
 	label: {
 		fontSize: 12,
-		color: "#5c5e5d",
+		color: theme.colors.text.muted,
 		textTransform: "uppercase",
 	},
 });

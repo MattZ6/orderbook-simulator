@@ -15,7 +15,9 @@ import { useDelayedLoading } from "@/hooks/use-delayed-loading";
 
 import { useNewMarketStore } from "@/store/market/market.store";
 
-import { BASE_COLOR, NEGATIVE_COLOR, POSITIVE_COLOR, styles } from "./styles";
+import { theme } from "@/styles/theme";
+
+import { styles } from "./styles";
 
 function formatPercent(value: number) {
 	return Intl.NumberFormat("en-us", {
@@ -51,9 +53,9 @@ const iconMap = {
 } as const;
 
 const colorMap = {
-	[Direction.Positive]: POSITIVE_COLOR,
-	[Direction.Negative]: NEGATIVE_COLOR,
-	[Direction.Base]: BASE_COLOR,
+	[Direction.Positive]: theme.colors.text.positive,
+	[Direction.Negative]: theme.colors.text.negative,
+	[Direction.Base]: theme.colors.text.foreground,
 } as const;
 
 export function Change24h() {

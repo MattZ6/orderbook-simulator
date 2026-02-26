@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+import { theme } from "@/styles/theme";
+
 export const styles = StyleSheet.create({
 	button: {
 		flexDirection: "row",
@@ -11,12 +13,12 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: 12,
 		borderRadius: 8,
 
-		backgroundColor: "#222222",
+		backgroundColor: theme.colors.background.subtle,
 	},
 	text: {
 		color: "white",
 	},
 	icon: {
-		color: "#606563",
+		color: theme.colors.text.muted,
 	},
 });

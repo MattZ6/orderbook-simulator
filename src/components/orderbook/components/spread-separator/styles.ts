@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { theme } from "@/styles/theme";
 
 export const styles = StyleSheet.create({
 	container: {
@@ -7,7 +8,7 @@ export const styles = StyleSheet.create({
 
 		borderTopWidth: 1,
 		borderBottomWidth: 1,
-		borderColor: "#222222",
+		borderColor: theme.colors.border.default,
 	},
 	slot: {
 		flex: 1,
@@ -18,12 +19,12 @@ export const styles = StyleSheet.create({
 	},
 	spreadPrice: {
 		fontSize: 14,
-		color: "#e8e3db",
+		color: theme.colors.text.foreground,
 	},
 	text: {
 		fontSize: 12,
 		lineHeight: 20,
-		color: "#606563",
+		color: theme.colors.text.muted,
 		textAlign: "center",
 		textTransform: "uppercase",
 	},
