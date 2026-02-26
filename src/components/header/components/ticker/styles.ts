@@ -23,7 +23,6 @@ export const styles = StyleSheet.create({
 		borderColor: theme.colors.border.default,
 	},
 	ticker: {
-		fontWeight: "700",
 		color: theme.colors.text.foreground,
 	},
 	icon: {

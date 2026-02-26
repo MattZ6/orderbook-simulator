@@ -5,13 +5,26 @@ import {
 	type TextStyle,
 } from "react-native";
 
-import { type TextVariant, textStyles } from "@/styles/semantic/text-styles";
+import {
+	type FontSize,
+	type FontWeight,
+	fontSizes,
+	fontWeight,
+} from "@/styles/semantic/text-styles";
 
 type Props = RNTextProps & {
-	variant?: TextVariant;
+	variant?: FontSize;
+	weight?: FontWeight;
 	style?: StyleProp<TextStyle>;
 };
 
-export function Text({ variant = "body", style, ...rest }: Props) {
-	return <RNText {...rest} style={[textStyles[variant], style]} />;
+export function Text({
+	variant = "body",
+	weight = "regular",
+	style,
+	...rest
+}: Props) {
+	return (
+		<RNText {...rest} style={[fontSizes[variant], fontWeight[weight], style]} />
+	);
 }

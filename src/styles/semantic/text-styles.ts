@@ -1,6 +1,6 @@
 import { typography } from "../tokens/typography";
 
-export const textStyles = {
+export const fontSizes = {
 	label: typography["1"],
 	bodySmall: typography["2"],
 	body: typography["3"],
@@ -8,4 +8,17 @@ export const textStyles = {
 	title: typography["5"],
 };
 
-export type TextVariant = keyof typeof textStyles;
+export const fontWeight = {
+	regular: {
+		fontWeight: "400",
+	},
+	semiBold: {
+		fontWeight: "600",
+	},
+	bold: {
+		fontWeight: "700",
+	},
+} as const;
+
+export type FontSize = keyof typeof fontSizes;
+export type FontWeight = keyof typeof fontWeight;

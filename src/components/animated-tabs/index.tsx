@@ -119,6 +119,7 @@ export function AnimatedTabs({ activeTab, onChange }: Props) {
 				>
 					<AnimatedText
 						variant="bodySmall"
+						weight="semiBold"
 						style={[styles.text, orderbookTextStyle]}
 					>
 						Orderbook
@@ -132,6 +133,7 @@ export function AnimatedTabs({ activeTab, onChange }: Props) {
 				>
 					<AnimatedText
 						variant="bodySmall"
+						weight="semiBold"
 						style={[styles.text, tradesTextStyle]}
 					>
 						Trades

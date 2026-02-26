@@ -30,7 +30,7 @@ export function Mark() {
 			isContentVisible={!isLoading}
 			style={styles.skeleton}
 		>
-			<Text variant="bodySmall" style={styles.value}>
+			<Text variant="bodySmall" weight="semiBold" style={styles.value}>
 				{formatPrice(markPrice ?? 0)}
 			</Text>
 		</Skeleton>

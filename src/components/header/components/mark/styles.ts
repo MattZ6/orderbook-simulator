@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
 		right: 0,
 	},
 	value: {
-		fontWeight: "600",
 		color: theme.colors.text.foreground,
 	},
 });

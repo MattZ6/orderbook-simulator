@@ -37,7 +37,7 @@ export function Ticker() {
 						{ backgroundColor: TICKER_LOGO_COLOR_MAP[symbol] },
 					]}
 				/>
-				<Text variant="title" style={styles.ticker}>
+				<Text variant="title" weight="bold" style={styles.ticker}>
 					{symbol}
 				</Text>
 				<FeatherIcon name="chevron-down" size={20} style={styles.icon} />

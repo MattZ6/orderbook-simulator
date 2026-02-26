@@ -110,7 +110,11 @@ export function Change24h() {
 					size={12}
 					color={colorMap[variation]}
 				/>
-				<AnimatedText variant="bodySmall" style={[styles.value, animatedStyle]}>
+				<AnimatedText
+					variant="bodySmall"
+					weight="semiBold"
+					style={animatedStyle}
+				>
 					{formatPercent(changePercent ?? 0)}
 				</AnimatedText>
 			</View>

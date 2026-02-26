@@ -8,7 +8,4 @@ export const styles = StyleSheet.create({
 		alignItems: "center",
 		gap: theme.spacing["2"],
 	},
-	value: {
-		fontWeight: "600",
-	},
 });

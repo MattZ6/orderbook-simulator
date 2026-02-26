@@ -1,11 +1,27 @@
 import Animated from "react-native-reanimated";
 
-import { type TextVariant, textStyles } from "@/styles/semantic/text-styles";
+import {
+	type FontSize,
+	type FontWeight,
+	fontSizes,
+	fontWeight,
+} from "@/styles/semantic/text-styles";
 
 type Props = React.ComponentProps<typeof Animated.Text> & {
-	variant?: TextVariant;
+	variant?: FontSize;
+	weight?: FontWeight;
 };
 
-export function AnimatedText({ variant = "body", style, ...rest }: Props) {
-	return <Animated.Text {...rest} style={[textStyles[variant], style]} />;
+export function AnimatedText({
+	variant = "body",
+	weight = "regular",
+	style,
+	...rest
+}: Props) {
+	return (
+		<Animated.Text
+			{...rest}
+			style={[fontSizes[variant], fontWeight[weight], style]}
+		/>
+	);
 }

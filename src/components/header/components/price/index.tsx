@@ -87,7 +87,7 @@ export function Price() {
 			isContentVisible={!isLoading}
 			style={styles.skeleton}
 		>
-			<AnimatedText variant="subtitle" style={[styles.price, animatedStyle]}>
+			<AnimatedText variant="subtitle" weight="semiBold" style={animatedStyle}>
 				{formatPrice(midPrice ?? 0)}
 			</AnimatedText>
 		</Skeleton>

@@ -34,7 +34,7 @@ export function Volume24h() {
 			skeletonHeight={14}
 			isContentVisible={!isLoading}
 		>
-			<Text variant="bodySmall" style={styles.value}>
+			<Text variant="bodySmall" weight="semiBold" style={styles.value}>
 				{formatVolume(volume24h ?? 0)}
 			</Text>
 		</Skeleton>
