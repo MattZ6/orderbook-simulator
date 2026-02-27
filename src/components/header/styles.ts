@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native";
-
+import { shape } from "@/styles/semantic/shape";
 import { theme } from "@/styles/theme";
 
 export const styles = StyleSheet.create({
 	container: {
-		borderRadius: 18,
+		borderRadius: shape.card,
 		backgroundColor: theme.colors.background.card,
 	},
 	upper: {

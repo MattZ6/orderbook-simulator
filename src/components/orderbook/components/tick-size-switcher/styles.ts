@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { shape } from "@/styles/semantic/shape";
 import { theme } from "@/styles/theme";
 
 export const styles = StyleSheet.create({
@@ -9,7 +10,7 @@ export const styles = StyleSheet.create({
 		gap: theme.spacing["1.5"],
 		height: 36,
 		paddingHorizontal: theme.spacing["3"],
-		borderRadius: 8,
+		borderRadius: shape.button,
 		backgroundColor: theme.colors.background.subtle,
 	},
 	text: {
