@@ -1,5 +1,7 @@
 import { memo } from "react";
-import { Text } from "react-native";
+
+import { Text } from "@/components/ui/text";
+
 import { styles } from "./styles";
 
 function formatPrice(value: number) {
@@ -33,7 +35,10 @@ type Props = {
 };
 
 export const OrderPrice = memo(({ price, type }: Props) => (
-	<Text style={[styles.text, type === "ask" ? styles.ask : styles.bid]}>
+	<Text
+		variant="bodySmall"
+		style={[styles.text, type === "ask" ? styles.ask : styles.bid]}
+	>
 		{formatPrice(price)}
 	</Text>
 ));

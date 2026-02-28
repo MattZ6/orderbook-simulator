@@ -1,7 +1,9 @@
 import FeatherIcon from "@expo/vector-icons/Feather";
 import * as Haptics from "expo-haptics";
 import { useCallback } from "react";
-import { Platform, Pressable, Text, View } from "react-native";
+import { Platform, Pressable, View } from "react-native";
+
+import { Text } from "@/components/ui/text";
 
 import { DEFAULT_HIT_SLOP } from "@/config/ui";
 
@@ -35,7 +37,9 @@ export function Ticker() {
 						{ backgroundColor: TICKER_LOGO_COLOR_MAP[symbol] },
 					]}
 				/>
-				<Text style={styles.ticker}>{symbol}</Text>
+				<Text variant="title" weight="bold" style={styles.ticker}>
+					{symbol}
+				</Text>
 				<FeatherIcon name="chevron-down" size={20} style={styles.icon} />
 			</View>
 		</Pressable>

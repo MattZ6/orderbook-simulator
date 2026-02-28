@@ -1,15 +1,15 @@
 import { StyleSheet } from "react-native";
 
-import { theme } from "@/styles/theme";
+import { theme } from "@/themes/theme";
 
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: theme.colors.background.default,
-		paddingTop: 60,
-		paddingHorizontal: 16,
+		backgroundColor: theme.colors.surface.base,
 	},
 	scrollableContent: {
-		paddingBottom: 40,
+		paddingTop: 60,
+		paddingHorizontal: theme.spacing["4"],
+		paddingBottom: theme.spacing["4"],
 	},
 });

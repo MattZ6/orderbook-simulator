@@ -13,6 +13,8 @@ import Animated, {
 	withTiming,
 } from "react-native-reanimated";
 
+import { AnimatedText } from "@/components/ui/animated-text";
+import { DEFAULT_HIT_SLOP } from "@/config/ui";
 import { styles } from "./styles";
 
 function triggerTapHaptic() {
@@ -112,20 +114,30 @@ export function AnimatedTabs({ activeTab, onChange }: Props) {
 
 				<Pressable
 					style={styles.button}
+					hitSlop={{ ...DEFAULT_HIT_SLOP, right: 0 }}
 					onPress={() => handleChangeTab("orderbook")}
 				>
-					<Animated.Text style={[styles.text, orderbookTextStyle]}>
+					<AnimatedText
+						variant="bodySmall"
+						weight="semiBold"
+						style={[styles.text, orderbookTextStyle]}
+					>
 						Orderbook
-					</Animated.Text>
+					</AnimatedText>
 				</Pressable>
 
 				<Pressable
 					style={styles.button}
+					hitSlop={{ ...DEFAULT_HIT_SLOP, left: 0 }}
 					onPress={() => handleChangeTab("trades")}
 				>
-					<Animated.Text style={[styles.text, tradesTextStyle]}>
+					<AnimatedText
+						variant="bodySmall"
+						weight="semiBold"
+						style={[styles.text, tradesTextStyle]}
+					>
 						Trades
-					</Animated.Text>
+					</AnimatedText>
 				</Pressable>
 			</View>
 		</View>

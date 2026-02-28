@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Animated, {
+import {
 	interpolateColor,
 	useAnimatedStyle,
 	useSharedValue,
@@ -7,6 +7,7 @@ import Animated, {
 } from "react-native-reanimated";
 
 import { Skeleton } from "@/components/skeleton";
+import { AnimatedText } from "@/components/ui/animated-text";
 
 import { LOADING_DELAY_IN_MS } from "@/config/ui";
 
@@ -14,7 +15,7 @@ import { useDelayedLoading } from "@/hooks/use-delayed-loading";
 
 import { useNewMarketStore } from "@/store/market/market.store";
 
-import { theme } from "@/styles/theme";
+import { theme } from "@/themes/theme";
 
 import { styles } from "./styles";
 
@@ -70,9 +71,9 @@ export function Price() {
 			direction.value,
 			[Direction.Negative, Direction.Base, Direction.Positive],
 			[
-				theme.colors.text.negative,
-				theme.colors.text.foreground,
-				theme.colors.text.positive,
+				theme.colors.feedback.negative.content,
+				theme.colors.content.primary,
+				theme.colors.feedback.positive.content,
 			],
 		);
 
@@ -86,9 +87,9 @@ export function Price() {
 			isContentVisible={!isLoading}
 			style={styles.skeleton}
 		>
-			<Animated.Text style={[styles.price, animatedStyle]}>
+			<AnimatedText variant="subtitle" weight="semiBold" style={animatedStyle}>
 				{formatPrice(midPrice ?? 0)}
-			</Animated.Text>
+			</AnimatedText>
 		</Skeleton>
 	);
 }

@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { theme } from "@/styles/theme";
+import { theme } from "@/themes/theme";
 
 export const styles = StyleSheet.create({
 	container: {
@@ -11,16 +11,14 @@ export const styles = StyleSheet.create({
 	slot: {
 		flex: 1,
 		flexDirection: "row",
-		paddingHorizontal: 16,
-		paddingVertical: 12,
+		paddingHorizontal: theme.spacing["4"],
+		paddingVertical: theme.spacing["3"],
 	},
 	lasSlot: {
 		justifyContent: "flex-end",
 	},
 	label: {
-		fontSize: 12,
-		lineHeight: 20,
-		color: theme.colors.text.muted,
+		color: theme.colors.content.secondary,
 		textTransform: "uppercase",
 	},
 	lastLabel: {

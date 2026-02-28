@@ -1,6 +1,5 @@
-import { Text } from "react-native";
-
 import { Skeleton } from "@/components/skeleton";
+import { Text } from "@/components/ui/text";
 
 import { LOADING_DELAY_IN_MS } from "@/config/ui";
 
@@ -31,7 +30,9 @@ export function Mark() {
 			isContentVisible={!isLoading}
 			style={styles.skeleton}
 		>
-			<Text style={styles.value}>{formatPrice(markPrice ?? 0)}</Text>
+			<Text variant="bodySmall" weight="semiBold" style={styles.value}>
+				{formatPrice(markPrice ?? 0)}
+			</Text>
 		</Skeleton>
 	);
 }

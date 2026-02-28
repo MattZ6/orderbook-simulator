@@ -1,17 +1,15 @@
 import { StyleSheet } from "react-native";
 
-import { theme } from "@/styles/theme";
+import { theme } from "@/themes/theme";
 
 export const styles = StyleSheet.create({
 	text: {
-		fontSize: 14,
-		lineHeight: 20,
-		color: theme.colors.text.foreground,
+		color: theme.colors.content.primary,
 	},
 	bid: {
-		color: theme.colors.text.positive,
+		color: theme.colors.feedback.positive.content,
 	},
 	ask: {
-		color: theme.colors.text.negative,
+		color: theme.colors.feedback.negative.content,
 	},
 });

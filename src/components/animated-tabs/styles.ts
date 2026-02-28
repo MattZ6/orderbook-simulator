@@ -1,18 +1,18 @@
 import { StyleSheet } from "react-native";
 
-import { theme } from "@/styles/theme";
+import { theme } from "@/themes/theme";
 
 export const styles = StyleSheet.create({
 	wrapper: {
-		padding: 8,
+		padding: theme.spacing["2"],
 	},
 
 	container: {
 		flex: 1,
 		flexDirection: "row",
-		backgroundColor: theme.colors.background.default,
-		padding: 4,
-		borderRadius: 12,
+		backgroundColor: theme.colors.surface.base,
+		padding: theme.spacing["1"],
+		borderRadius: theme.radii["5"],
 
 		position: "relative",
 		overflow: "hidden",
@@ -21,27 +21,25 @@ export const styles = StyleSheet.create({
 	button: {
 		flex: 1,
 		height: 40,
-		paddingHorizontal: 16,
-		borderRadius: 8,
+		paddingHorizontal: theme.spacing["4"],
+		borderRadius: theme.shape.button,
 		alignItems: "center",
 		justifyContent: "center",
 	},
 
 	text: {
-		fontWeight: "600",
-		fontSize: 16,
-		color: theme.colors.text.muted,
+		color: theme.colors.content.secondary,
 		textAlign: "center",
 	},
 
 	textActive: {
-		color: theme.colors.text.primary,
+		color: theme.colors.content.brand,
 	},
 
 	activeBackground: {
 		position: "absolute",
-		backgroundColor: theme.colors.background.primaryMuted,
-		borderRadius: 8,
+		backgroundColor: theme.colors.surface.brandMuted,
+		borderRadius: theme.shape.button,
 		height: 40,
 		top: 4,
 		left: 4,

@@ -1,6 +1,5 @@
-import { Text } from "react-native";
-
 import { Skeleton } from "@/components/skeleton";
+import { Text } from "@/components/ui/text";
 
 import { useDelayedLoading } from "@/hooks/use-delayed-loading";
 import { useNewMarketStore } from "@/store/market/market.store";
@@ -35,7 +34,9 @@ export function Volume24h() {
 			skeletonHeight={14}
 			isContentVisible={!isLoading}
 		>
-			<Text style={styles.value}>{formatVolume(volume24h ?? 0)}</Text>
+			<Text variant="bodySmall" weight="semiBold" style={styles.value}>
+				{formatVolume(volume24h ?? 0)}
+			</Text>
 		</Skeleton>
 	);
 }

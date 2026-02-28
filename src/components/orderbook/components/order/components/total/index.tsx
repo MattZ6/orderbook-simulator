@@ -1,5 +1,7 @@
 import { memo } from "react";
-import Animated, { FadeIn } from "react-native-reanimated";
+
+import { Text } from "@/components/ui/text";
+
 import { styles } from "./styles";
 
 type Props = {
@@ -7,9 +9,9 @@ type Props = {
 };
 
 export const OrderTotal = memo(({ value }: Props) => (
-	<Animated.Text style={styles.text} entering={FadeIn.duration(300)}>
+	<Text variant="bodySmall" style={styles.text}>
 		{value}
-	</Animated.Text>
+	</Text>
 ));
 
 OrderTotal.displayName = "OrderTotal";

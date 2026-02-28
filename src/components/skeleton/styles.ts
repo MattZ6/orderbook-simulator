@@ -1,18 +1,17 @@
 import { StyleSheet } from "react-native";
-import { theme } from "@/styles/theme";
+
+import { theme } from "@/themes/theme";
+
+export const skeletonBlockStyles = StyleSheet.create({
+	base: {
+		backgroundColor: theme.colors.surface.skeleton,
+		borderRadius: theme.radii["2"],
+	},
+});
 
 export const styles = StyleSheet.create({
 	base: {
 		position: "absolute",
-
-		backgroundColor: theme.colors.background.skeleton,
-		borderRadius: 4,
-	},
-});
-
-export const skeletonBlockStyles = StyleSheet.create({
-	base: {
-		backgroundColor: theme.colors.background.skeleton,
-		borderRadius: 4,
+		...skeletonBlockStyles.base,
 	},
 });

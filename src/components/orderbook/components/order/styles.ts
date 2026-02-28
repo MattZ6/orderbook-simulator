@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+import { theme } from "@/themes/theme";
+
 export const styles = StyleSheet.create({
 	container: {
 		height: 34,
@@ -11,6 +13,6 @@ export const styles = StyleSheet.create({
 	},
 	slot: {
 		flex: 1,
-		paddingHorizontal: 16,
+		paddingHorizontal: theme.spacing["4"],
 	},
 });

@@ -1,7 +1,9 @@
 import FeatherIcon from "@expo/vector-icons/Feather";
 import * as Haptics from "expo-haptics";
 import { useCallback } from "react";
-import { Platform, Pressable, Text } from "react-native";
+import { Platform, Pressable } from "react-native";
+
+import { Text } from "@/components/ui/text";
 
 import { DEFAULT_HIT_SLOP } from "@/config/ui";
 
@@ -17,7 +19,7 @@ function triggerTapHaptic() {
 	}
 }
 
-export function ViewType() {
+export function ViewTypeSwitcher() {
 	const ticker = useNewMarketStore((s) => s.currentSymbol);
 	const viewType = useNewMarketStore((s) => s.viewType);
 	const toggleViewType = useNewMarketStore((s) => s.toggleViewType);
@@ -35,7 +37,9 @@ export function ViewType() {
 			onPress={handleToggleViewType}
 			hitSlop={DEFAULT_HIT_SLOP}
 		>
-			<Text style={styles.text}>{label}</Text>
+			<Text variant="bodySmall" style={styles.text}>
+				{label}
+			</Text>
 			<FeatherIcon name="refresh-cw" size={12} style={styles.icon} />
 		</Pressable>
 	);

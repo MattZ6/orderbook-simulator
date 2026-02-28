@@ -1,14 +1,14 @@
 import { StyleSheet } from "react-native";
 
-import { theme } from "@/styles/theme";
+import { theme } from "@/themes/theme";
 
 export const styles = StyleSheet.create({
 	container: {
-		gap: 12,
+		gap: theme.spacing["3"],
 
-		borderRadius: 18,
-		backgroundColor: theme.colors.background.card,
+		borderRadius: theme.shape.card,
+		backgroundColor: theme.colors.surface.elevated,
 
-		marginTop: 16,
+		marginTop: theme.spacing["4"],
 	},
 });

@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+import { theme } from "@/themes/theme";
+
 export const styles = StyleSheet.create({
 	container: {
 		borderBottomLeftRadius: 16,
@@ -9,10 +11,10 @@ export const styles = StyleSheet.create({
 	header: {
 		flexDirection: "row",
 		justifyContent: "space-between",
-		gap: 16,
+		gap: theme.spacing["4"],
 
-		paddingHorizontal: 16,
+		paddingHorizontal: theme.spacing["4"],
 
-		marginBottom: 12,
+		marginBottom: theme.spacing["3"],
 	},
 });

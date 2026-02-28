@@ -1,5 +1,6 @@
 import { memo } from "react";
-import { Text } from "react-native";
+
+import { Text } from "@/components/ui/text";
 
 import { styles } from "./styles";
 
@@ -8,7 +9,9 @@ type Props = {
 };
 
 export const OrderSize = memo(({ value }: Props) => (
-	<Text style={styles.text}>{value}</Text>
+	<Text variant="bodySmall" style={styles.text}>
+		{value}
+	</Text>
 ));
 
 OrderSize.displayName = "OrderSize";

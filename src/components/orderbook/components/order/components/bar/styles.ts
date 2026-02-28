@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { theme } from "@/styles/theme";
+import { theme } from "@/themes/theme";
 
 export const styles = StyleSheet.create({
 	bar: {
@@ -10,9 +10,9 @@ export const styles = StyleSheet.create({
 		top: 0,
 	},
 	barAsk: {
-		backgroundColor: theme.colors.background.negative,
+		backgroundColor: theme.colors.feedback.negative.surface,
 	},
 	barBid: {
-		backgroundColor: theme.colors.background.positive,
+		backgroundColor: theme.colors.feedback.positive.surface,
 	},
 });

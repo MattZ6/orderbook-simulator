@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { theme } from "@/styles/theme";
+import { theme } from "@/themes/theme";
 
 export const styles = StyleSheet.create({
 	row: {
@@ -9,14 +9,14 @@ export const styles = StyleSheet.create({
 		height: 34,
 	},
 	bidSkeleton: {
-		backgroundColor: theme.colors.background.positive,
+		backgroundColor: theme.colors.feedback.positive.surface,
 	},
 	askSkeleton: {
-		backgroundColor: theme.colors.background.negative,
+		backgroundColor: theme.colors.feedback.negative.surface,
 	},
 	slot: {
 		flex: 1,
-		paddingHorizontal: 16,
+		paddingHorizontal: theme.spacing["4"],
 		justifyContent: "center",
 	},
 	slotRight: {
