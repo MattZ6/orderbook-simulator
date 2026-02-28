@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
-import { shape } from "@/styles/semantic/shape";
-import { theme } from "@/styles/theme";
+
+import { theme } from "@/themes/theme";
 
 export const styles = StyleSheet.create({
 	container: {
-		borderRadius: shape.card,
-		backgroundColor: theme.colors.background.card,
+		borderRadius: theme.shape.card,
+		backgroundColor: theme.colors.surface.elevated,
 	},
 	upper: {
 		flexDirection: "row",
@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
 		alignItems: "flex-end",
 	},
 	label: {
-		color: theme.colors.text.muted,
+		color: theme.colors.content.secondary,
 		textTransform: "uppercase",
 	},
 });

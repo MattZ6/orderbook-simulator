@@ -10,7 +10,7 @@ import {
 	type FontWeight,
 	fontSizes,
 	fontWeight,
-} from "@/styles/semantic/text-styles";
+} from "@/themes/semantic/text";
 
 type Props = RNTextProps & {
 	variant?: FontSize;

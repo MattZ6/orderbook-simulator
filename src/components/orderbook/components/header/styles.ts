@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { theme } from "@/styles/theme";
+import { theme } from "@/themes/theme";
 
 export const styles = StyleSheet.create({
 	container: {
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
 		justifyContent: "flex-end",
 	},
 	label: {
-		color: theme.colors.text.muted,
+		color: theme.colors.content.secondary,
 		textTransform: "uppercase",
 	},
 	lastLabel: {

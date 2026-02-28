@@ -15,7 +15,7 @@ import { useDelayedLoading } from "@/hooks/use-delayed-loading";
 
 import { useNewMarketStore } from "@/store/market/market.store";
 
-import { theme } from "@/styles/theme";
+import { theme } from "@/themes/theme";
 
 import { styles } from "./styles";
 
@@ -71,9 +71,9 @@ export function Price() {
 			direction.value,
 			[Direction.Negative, Direction.Base, Direction.Positive],
 			[
-				theme.colors.text.negative,
-				theme.colors.text.foreground,
-				theme.colors.text.positive,
+				theme.colors.feedback.negative.content,
+				theme.colors.content.primary,
+				theme.colors.feedback.positive.content,
 			],
 		);
 

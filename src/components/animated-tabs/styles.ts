@@ -1,8 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { shape } from "@/styles/semantic/shape";
-import { theme } from "@/styles/theme";
-import { radii } from "@/styles/tokens/radii";
+import { theme } from "@/themes/theme";
 
 export const styles = StyleSheet.create({
 	wrapper: {
@@ -12,9 +10,9 @@ export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		flexDirection: "row",
-		backgroundColor: theme.colors.background.default,
+		backgroundColor: theme.colors.surface.base,
 		padding: theme.spacing["1"],
-		borderRadius: radii["5"],
+		borderRadius: theme.radii["5"],
 
 		position: "relative",
 		overflow: "hidden",
@@ -24,24 +22,24 @@ export const styles = StyleSheet.create({
 		flex: 1,
 		height: 40,
 		paddingHorizontal: theme.spacing["4"],
-		borderRadius: shape.button,
+		borderRadius: theme.shape.button,
 		alignItems: "center",
 		justifyContent: "center",
 	},
 
 	text: {
-		color: theme.colors.text.muted,
+		color: theme.colors.content.secondary,
 		textAlign: "center",
 	},
 
 	textActive: {
-		color: theme.colors.text.primary,
+		color: theme.colors.content.brand,
 	},
 
 	activeBackground: {
 		position: "absolute",
-		backgroundColor: theme.colors.background.primaryMuted,
-		borderRadius: shape.button,
+		backgroundColor: theme.colors.surface.brandMuted,
+		borderRadius: theme.shape.button,
 		height: 40,
 		top: 4,
 		left: 4,

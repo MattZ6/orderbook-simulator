@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { theme } from "@/styles/theme";
+import { theme } from "@/themes/theme";
 
 export const styles = StyleSheet.create({
 	container: {
@@ -18,10 +18,10 @@ export const styles = StyleSheet.create({
 		height: 44,
 	},
 	spreadPrice: {
-		color: theme.colors.text.foreground,
+		color: theme.colors.content.primary,
 	},
 	text: {
-		color: theme.colors.text.muted,
+		color: theme.colors.content.secondary,
 		textAlign: "center",
 		textTransform: "uppercase",
 	},

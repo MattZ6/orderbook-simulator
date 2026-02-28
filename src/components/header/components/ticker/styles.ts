@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { theme } from "@/styles/theme";
+import { theme } from "@/themes/theme";
 
 export const TICKER_LOGO_COLOR_MAP: { [key: string]: string } = {
 	BTC: "#f7931a",
@@ -18,14 +18,14 @@ export const styles = StyleSheet.create({
 		width: SIZE,
 		height: SIZE,
 		borderRadius: SIZE,
-		backgroundColor: theme.colors.background.default,
+		backgroundColor: theme.colors.surface.base,
 		borderWidth: 1,
 		borderColor: theme.colors.border.default,
 	},
 	ticker: {
-		color: theme.colors.text.foreground,
+		color: theme.colors.content.primary,
 	},
 	icon: {
-		color: theme.colors.text.muted,
+		color: theme.colors.content.secondary,
 	},
 });

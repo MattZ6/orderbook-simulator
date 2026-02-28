@@ -12,7 +12,7 @@ import { AnimatedText } from "@/components/ui/animated-text";
 import { LOADING_DELAY_IN_MS } from "@/config/ui";
 import { useDelayedLoading } from "@/hooks/use-delayed-loading";
 import { useNewMarketStore } from "@/store/market/market.store";
-import { theme } from "@/styles/theme";
+import { theme } from "@/themes/theme";
 import { styles } from "./styles";
 
 function formatPercent(value: number) {
@@ -49,9 +49,9 @@ const iconMap = {
 } as const;
 
 const colorMap = {
-	[Direction.Positive]: theme.colors.text.positive,
-	[Direction.Negative]: theme.colors.text.negative,
-	[Direction.Base]: theme.colors.text.foreground,
+	[Direction.Positive]: theme.colors.feedback.positive.content,
+	[Direction.Negative]: theme.colors.feedback.negative.content,
+	[Direction.Base]: theme.colors.content.primary,
 } as const;
 
 export function Change24h() {

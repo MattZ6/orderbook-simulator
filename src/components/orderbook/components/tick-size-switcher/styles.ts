@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
-import { shape } from "@/styles/semantic/shape";
-import { theme } from "@/styles/theme";
+
+import { theme } from "@/themes/theme";
 
 export const styles = StyleSheet.create({
 	button: {
@@ -10,13 +10,13 @@ export const styles = StyleSheet.create({
 		gap: theme.spacing["1.5"],
 		height: 36,
 		paddingHorizontal: theme.spacing["3"],
-		borderRadius: shape.button,
-		backgroundColor: theme.colors.background.subtle,
+		borderRadius: theme.shape.button,
+		backgroundColor: theme.colors.surface.subtle,
 	},
 	text: {
-		color: theme.colors.text.foreground,
+		color: theme.colors.content.primary,
 	},
 	icon: {
-		color: theme.colors.text.muted,
+		color: theme.colors.content.secondary,
 	},
 });
