@@ -13,7 +13,6 @@ export type TickerSlice = {
 	ticker: TickerData | null;
 
 	setTicker: (data: TickerData) => void;
-	// updateTicker: (partial: Partial<TickerData>) => void;
 	resetTicker: () => void;
 };
 
@@ -33,25 +32,9 @@ export const createTickerSlice: StateCreator<
 		});
 	},
 
-	// updateTicker(partial) {
-	// 	const current = get().ticker;
-
-	// 	if (!current) {
-	// 		return;
-	// 	}
-
-	// 	set({
-	// 		ticker: {
-	// 			...current,
-	// 			...partial,
-	// 		},
-	// 	});
-	// },
-
 	resetTicker() {
 		set({
 			isTickerLoading: true,
-			// ticker: null,
 		});
 	},
 });
