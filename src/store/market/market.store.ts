@@ -5,8 +5,8 @@ import {
 	type ConnectionSlice,
 	createConnectionSlice,
 } from "./slices/connection.slice";
+import { createSymbolSlice, type SymbolSlice } from "./slices/symbol.slice";
 import { createTickerSlice, type TickerSlice } from "./slices/ticker.slice";
-import { createSymbolSlice, type SymbolSlice } from "./slices/ui.slice";
 
 type MarketStore = SymbolSlice & TickerSlice & BookSlice & ConnectionSlice;
 
