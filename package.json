@@ -2,6 +2,20 @@
   "name": "live-trade-feed",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "private": true,
+  "author": {
+    "name": "Matheus Zanin",
+    "url": "https://zanin.dev",
+    "email": "matheus@zanin.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MattZ6/live-trade-feed"
+  },
+  "bugs": {
+    "url": "https://github.com/MattZ6/live-trade-feed/issues"
+  },
+  "license": "MIT",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -35,6 +49,5 @@
     "@types/react": "19.1.10",
     "react-test-renderer": "19.1.0",
     "typescript": "5.9.2"
-  },
-  "private": true
+  }
 }
