@@ -13,19 +13,13 @@ import { LOADING_DELAY_IN_MS } from "@/config/ui";
 
 import { useDelayedLoading } from "@/hooks/use-delayed-loading";
 
+import { NumberFormat } from "@/lib/number-format";
+
 import { useNewMarketStore } from "@/store/market/market.store";
 
 import { theme } from "@/themes/theme";
 
 import { styles } from "./styles";
-
-function formatPrice(value: number) {
-	return Intl.NumberFormat("en-us", {
-		style: "currency",
-		currency: "USD",
-		maximumFractionDigits: 0,
-	}).format(value);
-}
 
 enum Direction {
 	Negative = -1,
@@ -88,7 +82,7 @@ export function Price() {
 			style={styles.skeleton}
 		>
 			<AnimatedText variant="subtitle" weight="semiBold" style={animatedStyle}>
-				{formatPrice(midPrice ?? 0)}
+				{NumberFormat.currency(midPrice ?? 0)}
 			</AnimatedText>
 		</Skeleton>
 	);

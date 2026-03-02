@@ -7,31 +7,14 @@ import { Text } from "@/components/ui/text";
 import { LOADING_DELAY_IN_MS } from "@/config/ui";
 
 import { useDelayedLoading } from "@/hooks/use-delayed-loading";
+
+import { NumberFormat } from "@/lib/number-format";
+
 import { useNewMarketStore } from "@/store/market/market.store";
 
 import { styles } from "./styles";
 
-function formatPrice(value: number) {
-	let fractionDigits = 0;
-
-	if (value < 1) {
-		fractionDigits = 3;
-	}
-
-	return Intl.NumberFormat("en-us", {
-		style: "currency",
-		currency: "USD",
-		maximumFractionDigits: fractionDigits,
-		minimumFractionDigits: fractionDigits,
-	}).format(value);
-}
-
-function formatPercent(value: number) {
-	return Intl.NumberFormat("en-us", {
-		style: "percent",
-		maximumFractionDigits: 3,
-	}).format(value / 100);
-}
+const SPREAD_STEP = 1_000;
 
 export function SpreadSeparator() {
 	const isBookLoading = useNewMarketStore((s) => s.isBookLoading);
@@ -39,6 +22,8 @@ export function SpreadSeparator() {
 
 	const spread = useNewMarketStore((s) => s.book?.spread);
 	const spreadPercent = useNewMarketStore((s) => s.book?.spreadPercent);
+
+	const normalizedSpread = (spread ?? 0) * SPREAD_STEP;
 
 	if (isLoading || typeof spread !== "number") {
 		return (
@@ -65,12 +50,14 @@ export function SpreadSeparator() {
 			</View>
 			<View style={styles.slot}>
 				<Text variant="bodySmall" style={[styles.text, styles.spreadPrice]}>
-					{formatPrice((spread ?? 0) * 1000)}
+					{NumberFormat.currency(normalizedSpread, {
+						fractionDigits: 0,
+					})}
 				</Text>
 			</View>
 			<View style={styles.slot}>
 				<Text variant="label" style={styles.text}>
-					({formatPercent(spreadPercent ?? 0)})
+					({NumberFormat.percent(spreadPercent ?? 0, { fractionDigits: 3 })})
 				</Text>
 			</View>
 		</Animated.View>
