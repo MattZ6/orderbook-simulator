@@ -1,11 +1,5 @@
-import * as Haptics from "expo-haptics";
 import { useEffect, useState } from "react";
-import {
-	type LayoutChangeEvent,
-	Platform,
-	Pressable,
-	View,
-} from "react-native";
+import { type LayoutChangeEvent, Pressable, View } from "react-native";
 import Animated, {
 	interpolateColor,
 	useAnimatedStyle,
@@ -14,16 +8,12 @@ import Animated, {
 } from "react-native-reanimated";
 
 import { AnimatedText } from "@/components/ui/animated-text";
-import { DEFAULT_HIT_SLOP } from "@/config/ui";
-import { styles } from "./styles";
 
-function triggerTapHaptic() {
-	if (Platform.OS === "android") {
-		Haptics.performAndroidHapticsAsync(Haptics.AndroidHaptics.Segment_Tick);
-	} else {
-		Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Soft);
-	}
-}
+import { DEFAULT_HIT_SLOP } from "@/config/ui";
+
+import { Haptics } from "@/services/device/haptics";
+
+import { styles } from "./styles";
 
 const BACKGROUND_ANIMATION_DURATION = 220;
 const TEXT_ANIMATION_DURATION = 180;
@@ -97,7 +87,7 @@ export function AnimatedTabs({ activeTab, onChange }: Props) {
 	};
 
 	const handleChangeTab = (tab: Tab) => {
-		triggerTapHaptic();
+		Haptics.selection();
 		onChange(tab);
 	};
 
