@@ -5,17 +5,11 @@ import { LOADING_DELAY_IN_MS } from "@/config/ui";
 
 import { useDelayedLoading } from "@/hooks/use-delayed-loading";
 
+import { NumberFormat } from "@/lib/number-format";
+
 import { useNewMarketStore } from "@/store/market/market.store";
 
 import { styles } from "./styles";
-
-function formatPrice(value: number) {
-	return Intl.NumberFormat("en-us", {
-		style: "currency",
-		currency: "USD",
-		maximumFractionDigits: 0,
-	}).format(value);
-}
 
 export function Mark() {
 	const isTickerLoading = useNewMarketStore((s) => s.isTickerLoading);
@@ -31,7 +25,7 @@ export function Mark() {
 			style={styles.skeleton}
 		>
 			<Text variant="bodySmall" weight="semiBold" style={styles.value}>
-				{formatPrice(markPrice ?? 0)}
+				{NumberFormat.currency(markPrice ?? 0)}
 			</Text>
 		</Skeleton>
 	);

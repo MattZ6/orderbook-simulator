@@ -1,6 +1,8 @@
 import { memo } from "react";
 import { View } from "react-native";
 
+import { NumberFormat } from "@/lib/number-format";
+
 import type { OrderWithTotal } from "@/store/market/types";
 
 import { OrderBar } from "./components/bar";
@@ -9,43 +11,6 @@ import { OrderSize } from "./components/size";
 import { OrderTotal } from "./components/total";
 
 import { styles } from "./styles";
-
-function formatSize(value: number) {
-	let suffix = "";
-	let normalizedValue = Number(value);
-
-	if (value > 1000) {
-		suffix = "K";
-		normalizedValue = normalizedValue / 1000;
-	}
-
-	return `${normalizedValue.toFixed(2)}${suffix}`;
-}
-
-function formatPrice(value: number) {
-	let suffix = "";
-	let maximumFractionDigits = 0;
-
-	if (value >= 1_000_000_000) {
-		value = value / 1_000_000_000;
-		maximumFractionDigits = 1;
-		suffix = "B";
-	}
-
-	if (value >= 1_000_000) {
-		value = value / 1_000_000;
-		maximumFractionDigits = 1;
-		suffix = "M";
-	}
-
-	return (
-		Intl.NumberFormat("en-us", {
-			style: "currency",
-			currency: "USD",
-			maximumFractionDigits,
-		}).format(value) + suffix
-	);
-}
 
 type Props = {
 	type: "ask" | "bid";
@@ -59,10 +24,14 @@ export const Order = memo((props: Props) => {
 	const { price, size, sizeInUSD, total, totalInUSD } = order;
 
 	const formattedSize =
-		viewType === "dollar" ? formatPrice(sizeInUSD) : formatSize(size);
+		viewType === "dollar"
+			? NumberFormat.currency(sizeInUSD, { compact: true })
+			: NumberFormat.size(size);
 
 	const formattedTotal =
-		viewType === "dollar" ? formatPrice(totalInUSD) : formatSize(total);
+		viewType === "dollar"
+			? NumberFormat.currency(totalInUSD, { compact: true })
+			: NumberFormat.size(total);
 
 	const barProgress = maxTotal > 0 ? total / maxTotal : 0;
 

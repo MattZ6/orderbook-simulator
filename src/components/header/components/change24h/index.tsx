@@ -9,20 +9,18 @@ import {
 
 import { Skeleton } from "@/components/skeleton";
 import { AnimatedText } from "@/components/ui/animated-text";
-import { LOADING_DELAY_IN_MS } from "@/config/ui";
-import { useDelayedLoading } from "@/hooks/use-delayed-loading";
-import { useNewMarketStore } from "@/store/market/market.store";
-import { theme } from "@/themes/theme";
-import { styles } from "./styles";
 
-function formatPercent(value: number) {
-	return Intl.NumberFormat("en-us", {
-		style: "percent",
-		maximumFractionDigits: 2,
-		minimumFractionDigits: 2,
-		signDisplay: "exceptZero",
-	}).format(value / 100);
-}
+import { LOADING_DELAY_IN_MS } from "@/config/ui";
+
+import { useDelayedLoading } from "@/hooks/use-delayed-loading";
+
+import { NumberFormat } from "@/lib/number-format";
+
+import { useNewMarketStore } from "@/store/market/market.store";
+
+import { theme } from "@/themes/theme";
+
+import { styles } from "./styles";
 
 enum Direction {
 	Negative = -1,
@@ -115,7 +113,7 @@ export function Change24h() {
 					weight="semiBold"
 					style={animatedStyle}
 				>
-					{formatPercent(changePercent ?? 0)}
+					{NumberFormat.percent(changePercent ?? 0, { fractionDigits: 2 })}
 				</AnimatedText>
 			</View>
 		</Skeleton>
