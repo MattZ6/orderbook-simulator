@@ -9,7 +9,7 @@
 
 <div align="center">
   <video
-    src="./.github/assets/showcase.mp4"
+    src="https://github.com/user-attachments/assets/3ec21219-0d12-4b4e-a139-2b2090fde3f0"
     width="300"
     controls
     playsinline
