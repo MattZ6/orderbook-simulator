@@ -1,5 +1,5 @@
 {
-  "name": "live-trade-feed",
+  "name": "orderbook-simulator",
   "main": "expo-router/entry",
   "version": "1.0.1",
   "private": true,
@@ -10,10 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MattZ6/live-trade-feed"
+    "url": "https://github.com/MattZ6/orderbook-simulator"
   },
   "bugs": {
-    "url": "https://github.com/MattZ6/live-trade-feed/issues"
+    "url": "https://github.com/MattZ6/orderbook-simulator/issues"
   },
   "license": "MIT",
   "scripts": {
