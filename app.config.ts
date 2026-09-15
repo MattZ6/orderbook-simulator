@@ -2,7 +2,8 @@ import type { ConfigContext, ExpoConfig } from "expo/config";
 
 import { name, version } from "./package.json";
 
-const buildNumber = 3;
+const appName = "Orderbook Simulation";
+const packageName = "dev.zanin.orderbook";
 
 export default ({ config }: ConfigContext): ExpoConfig => {
 	const variant = process.env.APP_VARIANT ?? "production";
@@ -11,7 +12,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
 	return {
 		...config,
 
-		name: isPreview ? "Live Trade Feed (Preview)" : "Live Trade Feed",
+		name: isPreview ? `${appName} (Preview)` : appName,
 
 		slug: name,
 		version,
@@ -19,24 +20,16 @@ export default ({ config }: ConfigContext): ExpoConfig => {
 
 		orientation: "portrait",
 
-		userInterfaceStyle: "automatic",
+		userInterfaceStyle: "dark",
 		backgroundColor: "#0a0a0a",
 
 		icon: "./assets/images/icon.png",
 
-		splash: {
-			image: "./assets/images/splash-icon.png",
-			resizeMode: "contain",
-			backgroundColor: "#0a0a0a",
-		},
-
 		ios: {
-			supportsTablet: true,
-			buildNumber: String(buildNumber),
-
+			supportsTablet: false,
 			bundleIdentifier: isPreview
-				? "dev.zanin.livetradefeed.preview"
-				: "dev.zanin.livetradefeed",
+				? `${packageName}.preview`
+				: packageName
 		},
 
 		android: {
@@ -44,14 +37,21 @@ export default ({ config }: ConfigContext): ExpoConfig => {
 				foregroundImage: "./assets/images/adaptive-icon.png",
 				backgroundColor: "#0a0a0a",
 			},
-			predictiveBackGestureEnabled: false,
-			versionCode: buildNumber,
 			package: isPreview
-				? "dev.zanin.livetradefeed.preview"
-				: "dev.zanin.livetradefeed",
+				? `${packageName}.preview`
+				: packageName
 		},
 
-		plugins: ["expo-router"],
+		plugins: [
+			"expo-router",
+			"expo-font",
+			"expo-status-bar",
+			["expo-splash-screen", {
+				image: "./assets/images/splash-icon.png",
+				resizeMode: "contain",
+				backgroundColor: "#0a0a0a",
+			}],
+		],
 
 		experiments: {
 			typedRoutes: true,
