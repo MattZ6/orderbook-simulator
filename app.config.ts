@@ -2,7 +2,7 @@ import type { ConfigContext, ExpoConfig } from "expo/config";
 
 import { name, version } from "./package.json";
 
-const appName = "Orderbook Simulation";
+const appName = "Orderbook Simulator";
 const packageName = "dev.zanin.orderbook";
 
 export default ({ config }: ConfigContext): ExpoConfig => {
