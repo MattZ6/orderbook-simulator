@@ -8,12 +8,11 @@
 </div>
 
 <div align="center">
-  <video
-    src="https://github.com/user-attachments/assets/3ec21219-0d12-4b4e-a139-2b2090fde3f0"
+  <img
+    src=".github/assets/showcase.gif"
+    alt="Orderbook simulation showcase"
     width="300"
-    controls
-    playsinline
-  ></video>
+  />
 
   <p>
     <sub>Order book simulation running on an iPhone.</sub>
